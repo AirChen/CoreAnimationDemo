@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		540C302B1E6C4717001BEBFA /* ACClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 540C302A1E6C4717001BEBFA /* ACClockView.m */; };
 		7F83B6CB1E6827080073C115 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F83B6CA1E6827080073C115 /* main.m */; };
 		7F83B6CE1E6827080073C115 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F83B6CD1E6827080073C115 /* AppDelegate.m */; };
 		7F83B6D61E6827080073C115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F83B6D51E6827080073C115 /* Assets.xcassets */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		540C30291E6C4717001BEBFA /* ACClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACClockView.h; sourceTree = "<group>"; };
+		540C302A1E6C4717001BEBFA /* ACClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACClockView.m; sourceTree = "<group>"; };
 		7F83B6C61E6827080073C115 /* ACCoreAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACCoreAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F83B6CA1E6827080073C115 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7F83B6CC1E6827080073C115 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 				7F83B6E11E68275E0073C115 /* ACCAViewController.m */,
 				7F83B6E31E6827790073C115 /* ACCAView.h */,
 				7F83B6E41E6827790073C115 /* ACCAView.m */,
+				540C30291E6C4717001BEBFA /* ACClockView.h */,
+				540C302A1E6C4717001BEBFA /* ACClockView.m */,
 				7F83B6D51E6827080073C115 /* Assets.xcassets */,
 				7F83B6D71E6827080073C115 /* LaunchScreen.storyboard */,
 				7F83B6DA1E6827080073C115 /* Info.plist */,
@@ -153,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F83B6E51E6827790073C115 /* ACCAView.m in Sources */,
+				540C302B1E6C4717001BEBFA /* ACClockView.m in Sources */,
 				7F83B6CE1E6827080073C115 /* AppDelegate.m in Sources */,
 				7F83B6CB1E6827080073C115 /* main.m in Sources */,
 				7F83B6E21E68275E0073C115 /* ACCAViewController.m in Sources */,
@@ -306,6 +312,7 @@
 				7F83B6DF1E6827080073C115 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

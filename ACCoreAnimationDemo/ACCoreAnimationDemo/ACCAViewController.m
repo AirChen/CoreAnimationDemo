@@ -8,8 +8,9 @@
 
 #import "ACCAViewController.h"
 #import "ACCAView.h"
+#import "ACClockView.h"
 
-@interface ACCAViewController ()
+@interface ACCAViewController ()<CALayerDelegate>
 
 @end
 
@@ -27,9 +28,43 @@
     CGFloat subViewX = self.view.center.x - subViewWidth / 2.0;
     CGFloat subViewY = self.view.center.y - subViewHeight / 2.0;
     
-    ACCAView *demoView = [[ACCAView alloc] initWithFrame:CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight)];
+    CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
     
+    [self clockViewLayerInRect:viewRect];
+}
+
+//calayer的基本属性
+- (void)basicMethodInRect:(CGRect)rect{
+    ACCAView *demoView = [[ACCAView alloc] initWithFrame:rect];
     [self.view addSubview:demoView];
+}
+
+//代理方法的使用
+- (void)drawDelegateMethodInRect:(CGRect)rect{
+    
+    CALayer *layer = [CALayer layer];
+    layer.frame = rect;
+    layer.backgroundColor = [UIColor whiteColor].CGColor;
+    layer.delegate = self;
+    
+    [self.view.layer addSublayer:layer];
+    
+    [layer display];
+}
+
+- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
+    
+    CGContextSetStrokeColorWithColor(ctx, [UIColor orangeColor].CGColor);
+    CGContextSetLineWidth(ctx, 10.0f);
+    CGContextStrokeEllipseInRect(ctx, layer.bounds);
+    
+}
+
+//时钟
+- (void)clockViewLayerInRect:(CGRect)rect{
+    
+    ACClockView *clockView = [[ACClockView alloc] initWithFrame:rect];
+    [self.view addSubview:clockView];
     
 }
 
