@@ -37,8 +37,8 @@
     _hourHand = [CALayer layer];
     
     _secondHand.frame = CGRectMake(0, 0, 3, 30);
-    _minuteHand.frame = CGRectMake(0, 0, 3, 50);
-    _hourHand.frame = CGRectMake(0, 0, 3, 40);
+    _minuteHand.frame = CGRectMake(0, 0, 3, 30);
+    _hourHand.frame = CGRectMake(0, 0, 3, 20);
     
     _secondHand.backgroundColor = [UIColor redColor].CGColor;
     _minuteHand.backgroundColor = [UIColor blackColor].CGColor;
@@ -50,13 +50,15 @@
     _minuteHand.position = _secondHand.position;
     _hourHand.position = _minuteHand.position;
     
-    _secondHand.anchorPoint = CGPointMake(1.5, 0);
-    _minuteHand.anchorPoint = CGPointMake(1.5, 0);
-    _hourHand.anchorPoint = CGPointMake(1.5, 0);
+    _secondHand.anchorPoint = CGPointMake(0.5, 1);
+    _minuteHand.anchorPoint = CGPointMake(0.5, 1);
+    _hourHand.anchorPoint = CGPointMake(0.5, 1);
     
     [self.layer addSublayer:_secondHand];
     [self.layer addSublayer:_minuteHand];
     [self.layer addSublayer:_hourHand];
+    
+    _secondHand.zPosition = 1.0f;//改变它的值，可以调整层级
     
     [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(loopClock) userInfo:nil repeats:YES];
 }
@@ -72,9 +74,9 @@
     CGFloat minAngle = components.minute / 60.0 * M_PI * 2.0;
     CGFloat hourAngle = components.hour / 12.0 * M_PI * 2.0;
     
-    self.secondHand.transform = CATransform3DMakeRotation(secAngle, 1, 0, 1);
-    self.minuteHand.transform = CATransform3DMakeRotation(minAngle, 1, 0, 1);
-    self.hourHand.transform = CATransform3DMakeRotation(hourAngle, 1, 0, 1);
+    self.secondHand.transform = CATransform3DMakeRotation(secAngle, 0, 0, 1);
+    self.minuteHand.transform = CATransform3DMakeRotation(minAngle, 0, 0, 1);
+    self.hourHand.transform = CATransform3DMakeRotation(hourAngle, 0, 0, 1);
 }
 
 

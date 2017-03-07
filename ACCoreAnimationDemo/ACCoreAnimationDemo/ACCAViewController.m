@@ -9,6 +9,7 @@
 #import "ACCAViewController.h"
 #import "ACCAView.h"
 #import "ACClockView.h"
+#import "ACCATouchView.h"
 
 @interface ACCAViewController ()<CALayerDelegate>
 
@@ -30,7 +31,7 @@
     
     CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
     
-    [self clockViewLayerInRect:viewRect];
+    [self touchViewLayerInRect:viewRect];
 }
 
 //calayer的基本属性
@@ -62,10 +63,14 @@
 
 //时钟
 - (void)clockViewLayerInRect:(CGRect)rect{
-    
     ACClockView *clockView = [[ACClockView alloc] initWithFrame:rect];
     [self.view addSubview:clockView];
-    
+}
+
+//触摸
+- (void)touchViewLayerInRect:(CGRect)rect{
+    ACCATouchView *demoView = [[ACCATouchView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
 }
 
 - (void)didReceiveMemoryWarning {
