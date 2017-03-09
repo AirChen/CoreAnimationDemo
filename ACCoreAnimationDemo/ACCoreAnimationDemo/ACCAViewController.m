@@ -10,6 +10,7 @@
 #import "ACCAView.h"
 #import "ACClockView.h"
 #import "ACCATouchView.h"
+#import "ACVisualView.h"
 
 @interface ACCAViewController ()<CALayerDelegate>
 
@@ -31,7 +32,7 @@
     
     CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
     
-    [self touchViewLayerInRect:viewRect];
+    [self visualViewLayerInRect:viewRect];
 }
 
 //calayer的基本属性
@@ -70,6 +71,12 @@
 //触摸
 - (void)touchViewLayerInRect:(CGRect)rect{
     ACCATouchView *demoView = [[ACCATouchView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
+}
+
+//视觉效果
+- (void)visualViewLayerInRect:(CGRect)rect{
+    ACVisualView *demoView = [[ACVisualView alloc] initWithFrame:rect];
     [self.view addSubview:demoView];
 }
 
