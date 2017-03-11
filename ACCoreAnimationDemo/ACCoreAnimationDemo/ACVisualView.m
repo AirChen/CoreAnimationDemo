@@ -18,7 +18,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self prepareShadowPath];
+        [self prepareOpacityDemo];
     }
     return self;
 }
@@ -121,6 +121,39 @@
     self.layer.shadowPath = circlePath;
     CGPathRelease(circlePath);
     
+}
+
+- (void)prepareMaskVisual{
+    self.layer.contents = (__bridge id)[UIImage imageNamed:@"Unknown"].CGImage;
+    self.layer.contentsGravity = kCAGravityResizeAspect;
+    
+    CALayer *maskLayer = [CALayer layer];
+    maskLayer.contents = (__bridge id)[UIImage imageNamed:@"bird"].CGImage;
+    maskLayer.contentsGravity = kCAGravityCenter;
+    maskLayer.contentsScale = [UIScreen mainScreen].scale;
+    maskLayer.frame = self.bounds;
+    
+    self.layer.mask = maskLayer;
+}
+
+- (void)prepareOpacityDemo{
+    
+    CGPoint orgP = self.bounds.origin;
+    CGSize orgS = self.bounds.size;
+    CGFloat interval = 30.0;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(orgP.x + interval, orgP.y + interval, orgS.width - 2 * interval, orgS.height - 2 * interval)];
+    label.text = @"Hi~";
+    label.textAlignment = NSTextAlignmentCenter;
+    label.backgroundColor = [UIColor whiteColor];
+    label.alpha = 0.5f;
+    
+    [self addSubview:label];
+    self.backgroundColor = [UIColor whiteColor];
+    self.alpha = 0.5f; // label.alpha -> 0.75f 感觉好像没有什么区别
+    
+    label.layer.shouldRasterize = YES;
+    label.layer.rasterizationScale = [UIScreen mainScreen].scale;
 }
 
 @end

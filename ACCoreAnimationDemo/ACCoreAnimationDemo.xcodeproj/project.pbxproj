@@ -10,6 +10,7 @@
 		540C302B1E6C4717001BEBFA /* ACClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 540C302A1E6C4717001BEBFA /* ACClockView.m */; };
 		540C302E1E6EFCBF001BEBFA /* ACCATouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 540C302D1E6EFCBF001BEBFA /* ACCATouchView.m */; };
 		548EDE581E71A1B300A4874F /* ACVisualView.m in Sources */ = {isa = PBXBuildFile; fileRef = 548EDE571E71A1B300A4874F /* ACVisualView.m */; };
+		548EDE5B1E73A33C00A4874F /* ACStrenthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 548EDE5A1E73A33C00A4874F /* ACStrenthView.m */; };
 		7F83B6CB1E6827080073C115 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F83B6CA1E6827080073C115 /* main.m */; };
 		7F83B6CE1E6827080073C115 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F83B6CD1E6827080073C115 /* AppDelegate.m */; };
 		7F83B6D61E6827080073C115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F83B6D51E6827080073C115 /* Assets.xcassets */; };
@@ -25,6 +26,8 @@
 		540C302D1E6EFCBF001BEBFA /* ACCATouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCATouchView.m; sourceTree = "<group>"; };
 		548EDE561E71A1B300A4874F /* ACVisualView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACVisualView.h; sourceTree = "<group>"; };
 		548EDE571E71A1B300A4874F /* ACVisualView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACVisualView.m; sourceTree = "<group>"; };
+		548EDE591E73A33C00A4874F /* ACStrenthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACStrenthView.h; sourceTree = "<group>"; };
+		548EDE5A1E73A33C00A4874F /* ACStrenthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACStrenthView.m; sourceTree = "<group>"; };
 		7F83B6C61E6827080073C115 /* ACCoreAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACCoreAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F83B6CA1E6827080073C115 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7F83B6CC1E6827080073C115 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 				540C302D1E6EFCBF001BEBFA /* ACCATouchView.m */,
 				548EDE561E71A1B300A4874F /* ACVisualView.h */,
 				548EDE571E71A1B300A4874F /* ACVisualView.m */,
+				548EDE591E73A33C00A4874F /* ACStrenthView.h */,
+				548EDE5A1E73A33C00A4874F /* ACStrenthView.m */,
 				7F83B6D51E6827080073C115 /* Assets.xcassets */,
 				7F83B6D71E6827080073C115 /* LaunchScreen.storyboard */,
 				7F83B6DA1E6827080073C115 /* Info.plist */,
@@ -168,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				540C302E1E6EFCBF001BEBFA /* ACCATouchView.m in Sources */,
+				548EDE5B1E73A33C00A4874F /* ACStrenthView.m in Sources */,
 				7F83B6E51E6827790073C115 /* ACCAView.m in Sources */,
 				540C302B1E6C4717001BEBFA /* ACClockView.m in Sources */,
 				548EDE581E71A1B300A4874F /* ACVisualView.m in Sources */,

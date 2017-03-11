@@ -11,6 +11,7 @@
 #import "ACClockView.h"
 #import "ACCATouchView.h"
 #import "ACVisualView.h"
+#import "ACStrenthView.h"
 
 @interface ACCAViewController ()<CALayerDelegate>
 
@@ -22,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor orangeColor];
+//    self.view.backgroundColor = [UIColor orangeColor];
     
     CGFloat subViewWidth = 100.0;
     CGFloat subViewHeight = 100.0;
@@ -74,9 +75,15 @@
     [self.view addSubview:demoView];
 }
 
-//视觉效果
+//视觉效果1
 - (void)visualViewLayerInRect:(CGRect)rect{
     ACVisualView *demoView = [[ACVisualView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
+}
+
+//视觉效果2 strenth
+- (void)strenthViewLayerInRect:(CGRect)rect{
+    ACStrenthView *demoView = [[ACStrenthView alloc] initWithFrame:rect];
     [self.view addSubview:demoView];
 }
 
