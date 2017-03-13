@@ -12,6 +12,8 @@
 #import "ACCATouchView.h"
 #import "ACVisualView.h"
 #import "ACStrenthView.h"
+#import "ACTransView.h"
+#import "ACBoxView.h"
 
 @interface ACCAViewController ()<CALayerDelegate>
 
@@ -23,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    self.view.backgroundColor = [UIColor orangeColor];
+    self.view.backgroundColor = [UIColor orangeColor];
     
     CGFloat subViewWidth = 100.0;
     CGFloat subViewHeight = 100.0;
@@ -33,7 +35,7 @@
     
     CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
     
-    [self visualViewLayerInRect:viewRect];
+    [self boxViewLayerInRect:viewRect];
 }
 
 //calayer的基本属性
@@ -87,9 +89,16 @@
     [self.view addSubview:demoView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//变换
+- (void)transViewLayerInRect:(CGRect)rect{
+    ACTransView *demoView = [[ACTransView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
+}
+
+//变换2 box
+- (void)boxViewLayerInRect:(CGRect)rect{
+    ACBoxView *demoView = [[ACBoxView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
 }
 
 @end
