@@ -14,6 +14,7 @@
 #import "ACStrenthView.h"
 #import "ACTransView.h"
 #import "ACBoxView.h"
+#import "ACProfessionalView.h"
 
 @interface ACCAViewController ()<CALayerDelegate>
 
@@ -35,7 +36,7 @@
     
     CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
     
-    [self boxViewLayerInRect:viewRect];
+    [self professionalLayerInRect:viewRect];
 }
 
 //calayer的基本属性
@@ -98,6 +99,12 @@
 //变换2 box
 - (void)boxViewLayerInRect:(CGRect)rect{
     ACBoxView *demoView = [[ACBoxView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
+}
+
+//专用图层
+- (void)professionalLayerInRect:(CGRect)rect{
+    ACProfessionalView *demoView = [[ACProfessionalView alloc] initWithFrame:rect];
     [self.view addSubview:demoView];
 }
 
