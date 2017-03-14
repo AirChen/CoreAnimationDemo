@@ -16,6 +16,8 @@
 #import "ACBoxView.h"
 #import "ACProfessionalView.h"
 
+#import "ACLayerLabel.h"
+
 @interface ACCAViewController ()<CALayerDelegate>
 
 @end
@@ -36,7 +38,7 @@
     
     CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
     
-    [self professionalLayerInRect:viewRect];
+    [self layerLabelInRect:viewRect];
 }
 
 //calayer的基本属性
@@ -106,6 +108,16 @@
 - (void)professionalLayerInRect:(CGRect)rect{
     ACProfessionalView *demoView = [[ACProfessionalView alloc] initWithFrame:rect];
     [self.view addSubview:demoView];
+}
+
+- (void)layerLabelInRect:(CGRect)rect{
+    ACLayerLabel *lab = [[ACLayerLabel alloc] initWithFrame:rect];
+    
+    lab.textColor = [UIColor blueColor];
+    lab.text = @"Hello!";
+    lab.font = [UIFont systemFontOfSize:15.0];
+    
+    [self.view addSubview:lab];
 }
 
 @end
