@@ -15,7 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self prepareTextLayerDemo2];
+        [self prepareReflactDemo];
     }
     return self;
 }
@@ -111,6 +111,139 @@
     CFRelease(fontRef);
     
     layer.string = textString;
+}
+
+//box cube
+- (void)prepareTransformLayerDemo{
+
+    CATransform3D ct = CATransform3DIdentity;
+    ct = CATransform3DMakeRotation(M_PI_4, 0, 1, 0);
+    ct = CATransform3DRotate(ct, M_PI_4, 1, 0, 0);
+    ct = CATransform3DRotate(ct, M_PI_4, 0, 0, 1);
+    
+    [self.layer addSublayer:[self cubeWithTransform:ct]];
+    
+    ct = CATransform3DTranslate(ct, 0, 300, 0);
+    ct = CATransform3DScale(ct, 0.5, 0.8, 0.1);
+    
+    [self.layer addSublayer:[self cubeWithTransform:ct]];
+}
+
+- (void)prepareReplicatorLayerDemo{
+    
+    CAReplicatorLayer *layer = [CAReplicatorLayer layer];
+    layer.frame = self.bounds;
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform = CATransform3DTranslate(transform, 200, 0, 0);
+    transform = CATransform3DRotate(transform, M_PI / 5.0, 0, 0, 1);
+    transform = CATransform3DTranslate(transform, -200, 0, 0);
+    layer.instanceTransform = transform;
+    layer.instanceCount = 3;
+    
+    CATransform3D ct = CATransform3DIdentity;
+    ct = CATransform3DMakeRotation(M_PI_4, 0, 1, 0);
+    ct = CATransform3DRotate(ct, M_PI_4, 1, 0, 0);
+    ct = CATransform3DRotate(ct, M_PI_4, 0, 0, 1);
+    
+    [layer addSublayer:[self cubeWithTransform:ct]];
+    [self.layer addSublayer:layer];
+}
+
+- (void)prepareReflactDemo{
+
+    CAReplicatorLayer *layer = [CAReplicatorLayer layer];
+    layer.frame = self.bounds;
+    
+    CATransform3D ct = CATransform3DIdentity;
+    CGFloat verticalOffset = self.bounds.size.height - 2.0;
+    ct = CATransform3DTranslate(ct, 0, verticalOffset, 0);
+    ct = CATransform3DScale(ct, 1, -1, 0);
+    layer.instanceTransform = ct;
+    layer.instanceCount = 2;
+    layer.instanceAlphaOffset = -0.6;
+    
+    CATransform3D ct1 = CATransform3DIdentity;
+    ct1 = CATransform3DMakeRotation(M_PI, 0, 1, 0);
+    ct1 = CATransform3DRotate(ct1, M_PI_4, 1, 0, 0);
+    ct1 = CATransform3DRotate(ct1, M_PI_4, 0, 0, 1);
+    [layer addSublayer:[self cubeWithTransform:ct1]];
+    [self.layer addSublayer:layer];
+    
+}
+
+- (CALayer *)cubeWithTransform:(CATransform3D)transform{
+    
+    CGFloat translationLength = self.bounds.size.width/2.0;
+    
+    CATransformLayer *cube = [CATransformLayer layer];
+    
+    CATransform3D ct = CATransform3DIdentity;
+    ct = CATransform3DMakeTranslation(0, 0, translationLength);
+    [cube addSublayer:[self faceWithTransform:ct]];
+    
+    ct = CATransform3DMakeTranslation(0, translationLength, 0);
+    ct = CATransform3DRotate(ct, M_PI_2, 1, 0, 0);
+    [cube addSublayer:[self faceWithTransform:ct]];
+    
+    ct = CATransform3DMakeTranslation(0, -translationLength, 0);
+    ct = CATransform3DRotate(ct, -M_PI_2, 1, 0, 0);
+    [cube addSublayer:[self faceWithTransform:ct]];
+    
+    ct = CATransform3DMakeTranslation(translationLength, 0, 0);
+    ct = CATransform3DRotate(ct, M_PI_2, 0, 1, 0);
+    [cube addSublayer:[self faceWithTransform:ct]];
+    
+    ct = CATransform3DMakeTranslation(-translationLength, 0, 0);
+    ct = CATransform3DRotate(ct, -M_PI_2, 0, 1, 0);
+    [cube addSublayer:[self faceWithTransform:ct]];
+    
+    ct = CATransform3DMakeTranslation(0, 0, -translationLength);
+    ct = CATransform3DRotate(ct, M_PI, 1, 0, 0);
+    [cube addSublayer:[self faceWithTransform:ct]];
+    
+    cube.frame = self.bounds;
+    cube.transform = transform;
+    
+    return cube;
+    
+}
+
+- (CALayer *)faceWithTransform:(CATransform3D)transform{
+
+    CALayer *layer = [CALayer layer];
+    
+    layer.frame = self.bounds;
+//    layer.backgroundColor = [self randomColor].CGColor;
+    [layer addSublayer:[self gradientLayer]];
+    layer.transform = transform;
+    
+    return layer;
+    
+}
+
+//渐变
+- (CALayer *)gradientLayer{
+    
+    CAGradientLayer *layer = [CAGradientLayer layer];
+    layer.frame = self.bounds;
+    
+    layer.colors = [NSArray arrayWithObjects:(__bridge id)[self randomColor].CGColor,(__bridge id)[self randomColor].CGColor,(__bridge id)[self randomColor].CGColor, nil];
+    layer.locations = @[@0.0,@0.25,@0.5];
+    
+    layer.startPoint = CGPointMake(0, 0);
+    layer.endPoint = CGPointMake(1, 1);
+    
+    return layer;
+    
+}
+
+- (UIColor *)randomColor{
+    CGFloat red = (rand() / (double)INT_MAX);
+    CGFloat green = (rand() / (double)INT_MAX);
+    CGFloat blue = (rand() / (double)INT_MAX);
+    
+    return [UIColor colorWithRed:red green:green blue:blue alpha:1];
 }
 
 @end

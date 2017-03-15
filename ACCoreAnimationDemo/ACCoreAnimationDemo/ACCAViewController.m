@@ -38,7 +38,7 @@
     
     CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
     
-    [self layerLabelInRect:viewRect];
+    [self professionalLayerInRect:viewRect];
 }
 
 //calayer的基本属性
