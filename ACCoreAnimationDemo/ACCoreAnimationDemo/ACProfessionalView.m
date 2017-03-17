@@ -7,6 +7,7 @@
 //
 
 #import "ACProfessionalView.h"
+#import "ACTools.h"
 #import <CoreText/CoreText.h>
 
 @implementation ACProfessionalView
@@ -228,7 +229,7 @@
     CAGradientLayer *layer = [CAGradientLayer layer];
     layer.frame = self.bounds;
     
-    layer.colors = [NSArray arrayWithObjects:(__bridge id)[self randomColor].CGColor,(__bridge id)[self randomColor].CGColor,(__bridge id)[self randomColor].CGColor, nil];
+    layer.colors = [NSArray arrayWithObjects:(__bridge id)[[ACTools shareTools] randomColor].CGColor,(__bridge id)[[ACTools shareTools] randomColor].CGColor,(__bridge id)[[ACTools shareTools] randomColor].CGColor, nil];
     layer.locations = @[@0.0,@0.25,@0.5];
     
     layer.startPoint = CGPointMake(0, 0);
@@ -236,14 +237,6 @@
     
     return layer;
     
-}
-
-- (UIColor *)randomColor{
-    CGFloat red = (rand() / (double)INT_MAX);
-    CGFloat green = (rand() / (double)INT_MAX);
-    CGFloat blue = (rand() / (double)INT_MAX);
-    
-    return [UIColor colorWithRed:red green:green blue:blue alpha:1];
 }
 
 @end
