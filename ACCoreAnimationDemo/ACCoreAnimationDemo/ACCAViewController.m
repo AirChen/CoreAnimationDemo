@@ -15,6 +15,7 @@
 #import "ACTransView.h"
 #import "ACBoxView.h"
 #import "ACProfessionalView.h"
+#import "ACProfessionalLayerView.h"
 
 #import "ACLayerLabel.h"
 
@@ -38,7 +39,7 @@
     
     CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
     
-    [self professionalLayerInRect:viewRect];
+    [self professionalLayer2InRect:viewRect];
 }
 
 //calayer的基本属性
@@ -107,6 +108,12 @@
 //专用图层
 - (void)professionalLayerInRect:(CGRect)rect{
     ACProfessionalView *demoView = [[ACProfessionalView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
+}
+
+//专用图层2
+- (void)professionalLayer2InRect:(CGRect)rect{
+    ACProfessionalLayerView *demoView = [[ACProfessionalLayerView alloc] initWithFrame:rect];
     [self.view addSubview:demoView];
 }
 
