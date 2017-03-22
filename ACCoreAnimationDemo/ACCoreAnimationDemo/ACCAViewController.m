@@ -18,6 +18,7 @@
 #import "ACProfessionalLayerView.h"
 #import "ACTransactionView.h"
 #import "ACAnimationView.h"
+#import "ACTransitionAnimationView.h"
 
 #import "ACLayerLabel.h"
 
@@ -41,7 +42,7 @@
     
     CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
     
-    [self animateViewInRect:viewRect];
+    [self transitionAnimateViewInRect:viewRect];
 }
 
 //calayer的基本属性
@@ -128,6 +129,12 @@
 //显示动画
 - (void)animateViewInRect:(CGRect)rect{
     ACAnimationView *demoView = [[ACAnimationView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
+}
+
+//显示动画
+- (void)transitionAnimateViewInRect:(CGRect)rect{
+    ACTransitionAnimationView *demoView = [[ACTransitionAnimationView alloc] initWithFrame:rect];
     [self.view addSubview:demoView];
 }
 

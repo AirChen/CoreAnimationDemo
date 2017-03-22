@@ -21,7 +21,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self prepareAnimateDemo2];
+        [self prepareAnimateDemo];
     }
     return self;
 }
@@ -32,7 +32,7 @@
     _animateLayer.frame = self.bounds;
     [self.layer addSublayer:_animateLayer];
     
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchAction2)];
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchAction)];
     [self addGestureRecognizer:gesture];
     
     [self setAnimateBackColor:[[ACTools shareTools] randomColor].CGColor];
@@ -103,7 +103,6 @@
     textLayer.fontSize = font.pointSize;
     CGFontRelease(fontRef);
     textLayer.contentsScale = [UIScreen mainScreen].scale;
-    [self.layer addSublayer:textLayer];
     
 //    CALayer *layer = [CALayer layer];
 //    layer.frame = CGRectMake(0, 0, 64, 64);
@@ -118,6 +117,23 @@
     animate.duration = 10.0;
     animate.rotationMode = kCAAnimationRotateAuto;
     [textLayer addAnimation:animate forKey:nil];
+    
+    CALayer *colorLayer = [CALayer layer];
+    colorLayer.backgroundColor = [UIColor blueColor].CGColor;
+    colorLayer.frame = CGRectMake(0, 0, 64, 64);
+    colorLayer.position = CGPointMake(-100, 150);
+    [self.layer addSublayer:colorLayer];
+    [self.layer addSublayer:textLayer];
+    
+    CABasicAnimation *animate2 = [CABasicAnimation animation];
+    animate2.keyPath = @"backgroundColor";
+    animate2.toValue = (__bridge id)[UIColor redColor].CGColor;
+//    animate2.duration = 10.0;
+    
+    CAAnimationGroup *animates = [CAAnimationGroup animation];
+    animates.animations = @[animate,animate2];
+    animates.duration = 10.0;
+    [colorLayer addAnimation:animates forKey:nil];
 }
 
 @end
