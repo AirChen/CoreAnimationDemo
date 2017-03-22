@@ -55,6 +55,15 @@
     transition.subtype = kCATransitionFromTop;
     [self.layer addAnimation:transition forKey:nil];
     
+    /*
+    CATransition *tran = [CATransition animation];
+    tran.type = @"cube";
+    tran.subtype = @"kCATransitionFromRight";
+    tran.duration = 1;
+    tran.startProgress = 0.2;
+    tran.endProgress = 0.8;
+    */
+    
     if (self.index == 5) {
         self.index = -1;
     }
