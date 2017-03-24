@@ -32,7 +32,7 @@
     _animateLayer.frame = self.bounds;
     [self.layer addSublayer:_animateLayer];
     
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchAction)];
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchAction2)];
     [self addGestureRecognizer:gesture];
     
     [self setAnimateBackColor:[[ACTools shareTools] randomColor].CGColor];
@@ -50,6 +50,9 @@
 - (void)touchAction2{
     CAKeyframeAnimation *animate = [CAKeyframeAnimation animation];
     animate.keyPath = @"backgroundColor";
+//    animate.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    CAMediaTimingFunction *fn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animate.timingFunctions = @[fn,fn,fn,fn];
     animate.values = @[
                        (__bridge id)[[ACTools shareTools] randomColor].CGColor,
                        (__bridge id)[[ACTools shareTools] randomColor].CGColor,
@@ -132,7 +135,17 @@
     
     CAAnimationGroup *animates = [CAAnimationGroup animation];
     animates.animations = @[animate,animate2];
+    //CAMediaTiming************ 时间属性
     animates.duration = 10.0;
+//    animates.repeatCount = 3;
+    animates.repeatDuration = INFINITY;
+    animates.autoreverses = YES;
+    animates.beginTime = 3.0;
+    animates.timeOffset = 1.0;
+    animates.speed = 2.0;
+    
+    //缓冲函数
+    animates.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [colorLayer addAnimation:animates forKey:nil];
 }
 
