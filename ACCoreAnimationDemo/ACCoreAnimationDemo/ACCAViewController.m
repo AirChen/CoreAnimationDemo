@@ -20,6 +20,8 @@
 #import "ACAnimationView.h"
 #import "ACTransitionAnimationView.h"
 #import "ACCacheView.h"
+#import "ACDrawView.h"
+#import "ACBrushView.h"
 
 #import "ACLayerLabel.h"
 
@@ -43,7 +45,7 @@
     
     CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
     
-    [self animateCacheViewInRect:viewRect];
+    [self brushViewInRect:viewRect];
 }
 
 //calayer的基本属性
@@ -142,6 +144,18 @@
 //动画缓冲
 - (void)animateCacheViewInRect:(CGRect)rect{
     ACCacheView *demoView = [[ACCacheView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
+}
+
+//矢量做图
+- (void)drawViewInRect:(CGRect)rect{
+    ACDrawView *demoView = [[ACDrawView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
+}
+
+//刷子
+- (void)brushViewInRect:(CGRect)rect{
+    ACBrushView *demoView = [[ACBrushView alloc] initWithFrame:rect];
     [self.view addSubview:demoView];
 }
 
