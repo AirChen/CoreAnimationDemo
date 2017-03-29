@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ACCAViewController.h"
+#import "ACImageIOViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,13 +16,13 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    ACCAViewController *viewController = [[ACCAViewController alloc] init];
+//    ACCAViewController *viewController = [[ACCAViewController alloc] init];
+    ACImageIOViewController *viewController = [[ACImageIOViewController alloc] init];
     self.window.rootViewController = viewController;
     
     [self.window makeKeyAndVisible];
