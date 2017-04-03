@@ -21,8 +21,8 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-//    ACCAViewController *viewController = [[ACCAViewController alloc] init];
-    ACImageIOViewController *viewController = [[ACImageIOViewController alloc] init];
+    ACCAViewController *viewController = [[ACCAViewController alloc] init];
+//    ACImageIOViewController *viewController = [[ACImageIOViewController alloc] init];
     self.window.rootViewController = viewController;
     
     [self.window makeKeyAndVisible];

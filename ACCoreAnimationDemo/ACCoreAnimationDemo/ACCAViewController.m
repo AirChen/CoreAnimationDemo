@@ -23,6 +23,8 @@
 #import "ACDrawView.h"
 #import "ACBrushView.h"
 
+#import "ACNumLayersView.h"
+
 #import "ACLayerLabel.h"
 
 @interface ACCAViewController ()<CALayerDelegate>
@@ -37,15 +39,15 @@
     
     self.view.backgroundColor = [UIColor orangeColor];
     
-    CGFloat subViewWidth = 100.0;
-    CGFloat subViewHeight = 100.0;
+    CGFloat subViewWidth = 300.0;
+    CGFloat subViewHeight = 300.0;
     
     CGFloat subViewX = self.view.center.x - subViewWidth / 2.0;
     CGFloat subViewY = self.view.center.y - subViewHeight / 2.0;
     
     CGRect viewRect = CGRectMake(subViewX, subViewY, subViewWidth, subViewHeight);
-    
-    [self brushViewInRect:viewRect];
+
+    [self numLayersViewInRect:viewRect];
 }
 
 //calayer的基本属性
@@ -156,6 +158,12 @@
 //刷子
 - (void)brushViewInRect:(CGRect)rect{
     ACBrushView *demoView = [[ACBrushView alloc] initWithFrame:rect];
+    [self.view addSubview:demoView];
+}
+
+//多图层
+- (void)numLayersViewInRect:(CGRect)rect{
+    ACNumLayersView *demoView = [[ACNumLayersView alloc] initWithFrame:rect];
     [self.view addSubview:demoView];
 }
 

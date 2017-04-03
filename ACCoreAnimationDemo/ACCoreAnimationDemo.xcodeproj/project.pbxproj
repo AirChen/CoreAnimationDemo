@@ -17,6 +17,7 @@
 		549E55B81E854E4B002606F3 /* ACCacheView.m in Sources */ = {isa = PBXBuildFile; fileRef = 549E55B71E854E4B002606F3 /* ACCacheView.m */; };
 		549E55BB1E86AFC8002606F3 /* ACDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 549E55BA1E86AFC8002606F3 /* ACDrawView.m */; };
 		549E55BE1E86B6BD002606F3 /* ACBrushView.m in Sources */ = {isa = PBXBuildFile; fileRef = 549E55BD1E86B6BD002606F3 /* ACBrushView.m */; };
+		54A362381E9232B00090158A /* ACNumLayersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A362371E9232B00090158A /* ACNumLayersView.m */; };
 		54C03B621E763DE800A68DB6 /* ACBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C03B611E763DE800A68DB6 /* ACBoxView.m */; };
 		54C03B651E7646E100A68DB6 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C03B641E7646E100A68DB6 /* GLKit.framework */; };
 		54C03B681E76DC8400A68DB6 /* ACProfessionalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C03B671E76DC8400A68DB6 /* ACProfessionalView.m */; };
@@ -58,6 +59,8 @@
 		549E55BA1E86AFC8002606F3 /* ACDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACDrawView.m; sourceTree = "<group>"; };
 		549E55BC1E86B6BD002606F3 /* ACBrushView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACBrushView.h; sourceTree = "<group>"; };
 		549E55BD1E86B6BD002606F3 /* ACBrushView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACBrushView.m; sourceTree = "<group>"; };
+		54A362361E9232B00090158A /* ACNumLayersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACNumLayersView.h; sourceTree = "<group>"; };
+		54A362371E9232B00090158A /* ACNumLayersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACNumLayersView.m; sourceTree = "<group>"; };
 		54C03B601E763DE800A68DB6 /* ACBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACBoxView.h; sourceTree = "<group>"; };
 		54C03B611E763DE800A68DB6 /* ACBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACBoxView.m; sourceTree = "<group>"; };
 		54C03B641E7646E100A68DB6 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -115,6 +118,17 @@
 				549E55B31E82B797002606F3 /* ACTransitionAnimationView.m */,
 			);
 			name = animation;
+			sourceTree = "<group>";
+		};
+		54A362351E9231C60090158A /* ImageIO */ = {
+			isa = PBXGroup;
+			children = (
+				54FDD7671E8BF1A80064DF62 /* ACImageIOViewController.h */,
+				54FDD7681E8BF1A80064DF62 /* ACImageIOViewController.m */,
+				54FDD7811E8C00620064DF62 /* ACCollectionViewLayout.h */,
+				54FDD7821E8C00620064DF62 /* ACCollectionViewLayout.m */,
+			);
+			name = ImageIO;
 			sourceTree = "<group>";
 		};
 		54C03B631E7646E100A68DB6 /* Frameworks */ = {
@@ -188,10 +202,6 @@
 				54C03B7D1E7C152E00A68DB6 /* ACTools.m */,
 				7F83B6E01E68275E0073C115 /* ACCAViewController.h */,
 				7F83B6E11E68275E0073C115 /* ACCAViewController.m */,
-				54FDD7671E8BF1A80064DF62 /* ACImageIOViewController.h */,
-				54FDD7681E8BF1A80064DF62 /* ACImageIOViewController.m */,
-				54FDD7811E8C00620064DF62 /* ACCollectionViewLayout.h */,
-				54FDD7821E8C00620064DF62 /* ACCollectionViewLayout.m */,
 				7F83B6E31E6827790073C115 /* ACCAView.h */,
 				7F83B6E41E6827790073C115 /* ACCAView.m */,
 				540C30291E6C4717001BEBFA /* ACClockView.h */,
@@ -204,6 +214,9 @@
 				549E55BA1E86AFC8002606F3 /* ACDrawView.m */,
 				549E55BC1E86B6BD002606F3 /* ACBrushView.h */,
 				549E55BD1E86B6BD002606F3 /* ACBrushView.m */,
+				54A362361E9232B00090158A /* ACNumLayersView.h */,
+				54A362371E9232B00090158A /* ACNumLayersView.m */,
+				54A362351E9231C60090158A /* ImageIO */,
 				549E55B51E82C428002606F3 /* animation */,
 				54C03B771E7C13A900A68DB6 /* visual */,
 				54C03B761E7C139D00A68DB6 /* transform */,
@@ -305,6 +318,7 @@
 				549E55B81E854E4B002606F3 /* ACCacheView.m in Sources */,
 				540C302E1E6EFCBF001BEBFA /* ACCATouchView.m in Sources */,
 				548EDE5B1E73A33C00A4874F /* ACStrenthView.m in Sources */,
+				54A362381E9232B00090158A /* ACNumLayersView.m in Sources */,
 				54C03B6E1E7C00B500A68DB6 /* ACProfessionalLayerView.m in Sources */,
 				7F83B6E51E6827790073C115 /* ACCAView.m in Sources */,
 				540C302B1E6C4717001BEBFA /* ACClockView.m in Sources */,

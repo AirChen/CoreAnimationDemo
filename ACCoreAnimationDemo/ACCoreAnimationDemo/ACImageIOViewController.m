@@ -195,7 +195,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{ //cache the image
             [cache setObject:image forKey:@(index)];
             //display the image
-            NSIndexPath *indexPath = [NSIndexPath indexPathForItem: index inSection:0]; UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem: index inSection:0];
+            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
             UIImageView *imageView = [cell.contentView.subviews lastObject];
             imageView.image = image;
         });
